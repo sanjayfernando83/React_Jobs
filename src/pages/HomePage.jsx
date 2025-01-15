@@ -3,8 +3,7 @@ import React from 'react'
 import Card from '../components/Card'
 import Hero from '../components/Hero'
 import JobHolder from '../components/JobHolder'
-import MoreJobs from '../components/MoreJobs'
-import NavPane from '../components/NavPane'
+import MoreJobs from '../components/MoreJobs' 
 
 const HomePage = () => {
   return (
