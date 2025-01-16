@@ -5,9 +5,11 @@ import { createRoutesFromElements, Route, RouterProvider } from "react-router-do
 import { createBrowserRouter } from "react-router-dom";
 
 import React from 'react'
+import MainLayout from "./layouts/MainLayout";
+
 import HomePage from "./pages/HomePage";
 import JobsPage from "./pages/JobsPage";
-import MainLayout from "./layouts/MainLayout";
+import Addjob from "./pages/AddJob"
 
 
 const router = createBrowserRouter(
@@ -15,6 +17,7 @@ const router = createBrowserRouter(
     <Route path ="/" element={<MainLayout/>} >
       <Route index element={<HomePage/>} ></Route>
       <Route path ='/jobs' element={<JobsPage/>} ></Route>
+      <Route path ='/add-job' element={<Addjob/>} ></Route>
     </Route>
   )
 );
