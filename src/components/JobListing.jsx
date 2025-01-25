@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaMapMarker } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
  
+
  
 
-
 const JobListing = ( {job}) => { 
+
+    
+        const [showfulldesc, setshowfuldesc] = useState(false);
+
+        let description = showfulldesc? job.description     : job.description.substr(0,50) + '...';
 
         return  <>
                 <div className="bg-white rounded-xl shadow-md relative">
@@ -16,7 +21,8 @@ const JobListing = ( {job}) => {
                     </div>
 
                     <div className="mb-5">
-                    {job.description}
+                        {  description  } 
+                        <button id='btnmore' onClick={  ()=>  setshowfuldesc(!showfulldesc) } >{showfulldesc?'Less':'More'}</button>
                     </div>
 
                     <h3 className="text-indigo-500 mb-2">{job.salary}/ Year</h3> 
