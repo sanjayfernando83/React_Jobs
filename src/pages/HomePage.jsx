@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <> 
         <Hero></Hero>
-        <JobHolder></JobHolder>
+        <JobHolder isHome='true' ></JobHolder>
         <Card></Card>
         <MoreJobs></MoreJobs>
     </>
