@@ -3,32 +3,33 @@ import { FaMapMarker } from 'react-icons/fa'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
 
-import jobs from '../jobs.json'
+//import jobs from '../jobs.json'
  
-const JobHolder = ({isHome = false}) => { 
+const JobHolder = ({isHome =false }) => { 
+ 
 
-
-    /*  
-    const [jobs,setJobs] = useState([]); 
-    const [loading,setLoading] = useState(true);
-
-    useEffect (() => {
+    const [jobs, setJobs] = useState([]);
+    const [loading, setLoading] = useState(true);
+      
+    useEffect(() => {
       const fetchJobs = async () => {
           try {
-            const res  = await fetch ('http://localhost:9999/jobs');
-            const data = await res.json();
-            setJobs(data);
+              const res = await fetch('http://localhost:9999/jobs');
+              const data = await res.json();
+              setLoading(false); // Set loading to false after successful fetch
+              isHome?setJobs(data.slice(0,3)): setJobs(data)  ; 
+          } catch (E) {
+              console.log('Error fetching data', E);
           }
-          catch (E){
-            console.log('Error fetching data' , E);
-          } 
-          finally {
-            setLoading(false);
-          }
-      }
+      };
+  
       fetchJobs();
-    }, [] ) 
-    */
+  }, [isHome]); // Dependency array still includes isHome
+  
+ 
+
+    
+    
 
     return <>
           <section className="bg-blue-50 px-4 py-10">
@@ -37,11 +38,11 @@ const JobHolder = ({isHome = false}) => {
                     Browse Jobs
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
- 
-                 
-                      {jobs.map((job)=> (
-
-                          <>
+  
+                      {   
+                          
+                          jobs.map((job) => (
+  
                            
                           <div className="bg-white rounded-xl shadow-md relative">
                           <div className="p-4">
@@ -54,8 +55,7 @@ const JobHolder = ({isHome = false}) => {
                                 {job.description}
                               </div>
 
-                              <h3 className="text-indigo-500 mb-2">{job.salary}/ Year</h3>
-
+                              <h3 className="text-indigo-500 mb-2">{job.salary}/ Year</h3> 
                               <div className="border border-gray-100 mb-5"></div>
 
                               <div className="flex flex-col lg:flex-row justify-between mb-4">
@@ -71,8 +71,7 @@ const JobHolder = ({isHome = false}) => {
                                   </NavLink>
                               </div>
                           </div>
-                        </div> 
-                        </>
+                        </div>  
                       ))} 
                   
                 </div>
