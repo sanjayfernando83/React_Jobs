@@ -2,14 +2,14 @@ import React from 'react'
 
 import Card from '../components/Card'
 import Hero from '../components/Hero'
-import JobHolder from '../components/JobHolder'
+import JobListings from '../components/JobListings'
 import MoreJobs from '../components/MoreJobs' 
 
 const HomePage = () => {
   return (
     <> 
         <Hero></Hero>
-        <JobHolder isHome={true} ></JobHolder>
+        <JobListings isHome={true} ></JobListings>
         <Card></Card>
         <MoreJobs></MoreJobs>
     </>
