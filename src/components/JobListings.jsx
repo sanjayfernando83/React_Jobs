@@ -14,7 +14,7 @@ const JobListings = ({isHome =false }) => {
     useEffect(() => {
       const fetchJobs = async () => {
           try {
-              const res = await fetch('http://localhost:9999/jobs');
+              const res = await fetch('/api/jobs');
               const data = await res.json();
               setLoading(false); // Set loading to false after successful fetch
               isHome?setJobs(data.slice(0,3)): setJobs(data)  ; 
@@ -37,13 +37,13 @@ const JobListings = ({isHome =false }) => {
                     </h2> 
                     {
                             loading?<Spinner loading={loading}   />: <>
-                              <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> 
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6"> 
                                 {    
                                      jobs.map((job) => (  
                                         <JobListing  job = {job} ></JobListing> 
-                                    ))
+                                     ))
                                 }
-                             </div>
+                                </div>
                             </> 
                     } 
                  </div>
